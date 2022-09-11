@@ -1,3 +1,4 @@
+import 'package:epsilon/screens/homeScreen.dart';
 import 'package:epsilon/screens/loginScreen.dart';
 import 'package:epsilon/screens/splash_screen.dart';
 import 'package:flutter/material.dart';
@@ -30,24 +31,19 @@ class AppRouter extends RouterDelegate
         if (!appStateManager.isInitialized) SplashScreen.page(),
         if (appStateManager.isInitialized && !appStateManager.isLoggedIn)
           LoginScreen.page(),
+        if (appStateManager.isInitialized && appStateManager.isLoggedIn)
+          HomeScreen.page(appStateManager.getSelectedTab),
       ],
     );
   }
 
-  bool _handlePopPage(
-
-      Route<dynamic> route,
-
-      result) {
-
+  bool _handlePopPage(Route<dynamic> route, result) {
     if (!route.didPop(result)) {
-
       return false;
     }
 
     return true;
   }
-
 
   @override
   Future<void> setNewRoutePath(configuration) async => null;
