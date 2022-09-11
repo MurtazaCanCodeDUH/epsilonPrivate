@@ -1,16 +1,12 @@
 # epsilon
 
-A new Flutter project.
+The official repository of the Epsilon - A science olympiad held at Alpha College, Karachi. 
+A cross platform app used as a portal for Epsilon participants.
 
-## Getting Started
+## Features
+1) In-app chat feature for constant updates.
+2) live performance stats of the team
+3) registrations via the app
+4) important data within reach.
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
