@@ -22,6 +22,12 @@ class LandingPage extends StatefulWidget {
 
 class _LandingPageState extends State<LandingPage> {
   @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    Provider.of<AppStateManager>(context, listen: false).landApp();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
         body: SingleChildScrollView(
@@ -157,13 +163,47 @@ class _LandingPageState extends State<LandingPage> {
               Container(
                 height: 250,
                 child: Center(
-                  child: MaterialButton(
-                    onPressed: ()=> {},
-                    height: 70,
-                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(22)),
-                    minWidth: 175,
-                    color: Colors.white,
-                    child: const Text('Register', style: TextStyle(fontSize: 30, fontFamily: 'Anton'),),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: MaterialButton(
+                          onPressed: () => {
+                            Provider.of<AppStateManager>(context, listen: false).goToRegister()
+                          },
+                          elevation: 50,
+                          height: 70,
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(22)),
+                          minWidth: 140,
+                          color: Colors.white,
+                          child: const Text(
+                            'Register',
+                            style: TextStyle(fontSize: 25, fontFamily: 'Anton'),
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: MaterialButton(
+                          onPressed: () async {
+                            Provider.of<AppStateManager>(context, listen: false)
+                                .goTologin();
+                          },
+                          height: 70,
+                          elevation: 50,
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(22)),
+                          minWidth: 140,
+                          color: Colors.white,
+                          child: const Text(
+                            'Login',
+                            style: TextStyle(fontSize: 25, fontFamily: 'Anton'),
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
                 ),
               )

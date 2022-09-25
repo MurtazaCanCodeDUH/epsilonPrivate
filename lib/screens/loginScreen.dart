@@ -30,7 +30,14 @@ class LoginScreen extends StatelessWidget {
       body: ListView(
         scrollDirection: Axis.vertical,
         children: [
-          Container(alignment: Alignment.topCenter,child: Lottie.asset('assets/welcomeToEpsillon.json'),)
+          Center(
+            child: MaterialButton(onPressed: () async {
+              Provider.of<AppStateManager>(context, listen: false).login();
+            },
+            color: Colors.black,
+              child: Text('Login', style: TextStyle(color: Colors.white),),
+            ),
+          )
         ],
       ),
     );
