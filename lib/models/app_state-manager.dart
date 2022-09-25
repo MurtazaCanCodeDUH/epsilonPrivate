@@ -9,6 +9,7 @@ class EpsilonTab {
 class AppStateManager extends ChangeNotifier{
   bool _initialized = false;
   bool _loggedIn = false;
+  bool _isLanded = false;
   int _selectedTab = EpsilonTab.dashboard;
 
   late String _username;
@@ -22,6 +23,7 @@ class AppStateManager extends ChangeNotifier{
 
   bool get isInitialized => _initialized;
   bool get isLoggedIn => _loggedIn;
+  bool get isLanded => _isLanded;
   int get getSelectedTab => _selectedTab;
 
 
@@ -37,6 +39,10 @@ class AppStateManager extends ChangeNotifier{
 
   void login(){
     _loggedIn = true;
+    notifyListeners();
+  }
+  void landApp(){
+    _isLanded = true;
     notifyListeners();
   }
 

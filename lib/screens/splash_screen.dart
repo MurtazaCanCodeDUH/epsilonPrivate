@@ -28,13 +28,13 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.deepPurple,
+      backgroundColor: Color(0xff5e17ff),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Lottie.asset('assets/splashLottie.json', height: 400),
-            const Text('EPSILON', style: TextStyle(fontFamily: 'Anton', fontSize: 65),)
+            const Text('EPSILON', style: TextStyle(fontFamily: 'Anton', fontSize: 65, color: Colors.white),)
           ],
         ),
       ),
