@@ -87,7 +87,7 @@ class _LandingPageState extends State<LandingPage> {
                       top: Radius.elliptical(175, 90),
                       bottom: Radius.elliptical(175, 90))),
               child: Center(
-                child: Container(
+                child: SizedBox(
                   height: 400,
                   child: Swiper(
                       itemCount: 10,
@@ -160,7 +160,7 @@ class _LandingPageState extends State<LandingPage> {
                     borderRadius:
                         BorderRadius.vertical(top: Radius.elliptical(175, 90)),
                   )),
-              Container(
+              SizedBox(
                 height: 250,
                 child: Center(
                   child: Row(
@@ -170,7 +170,8 @@ class _LandingPageState extends State<LandingPage> {
                         padding: const EdgeInsets.all(8.0),
                         child: MaterialButton(
                           onPressed: () => {
-                            Provider.of<AppStateManager>(context, listen: false).goToRegister()
+                            Provider.of<AppStateManager>(context, listen: false)
+                                .goToRegister()
                           },
                           elevation: 50,
                           height: 70,
@@ -188,8 +189,8 @@ class _LandingPageState extends State<LandingPage> {
                         padding: const EdgeInsets.all(8.0),
                         child: MaterialButton(
                           onPressed: () async {
-                            Provider.of<AppStateManager>(context, listen: false)
-                                .goTologin();
+                            //Provider.of<AppStateManager>(context, listen: false)
+                            //  .goTologin();
                           },
                           height: 70,
                           elevation: 50,
