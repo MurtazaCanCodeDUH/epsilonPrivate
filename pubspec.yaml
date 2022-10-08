@@ -79,14 +79,14 @@ flutter:
   # list giving the asset and other descriptors for the font. For
   # example:
   fonts:
-    - family: Secular
-      fonts:
-        - asset: assets/fonts/SecularOne-Regular.ttf
+    #- family: Secular
+    #  fonts:
+     #   - asset: assets/fonts/SecularOne-Regular.ttf
   #      - asset: assets/fonts/Antonio-VariableFont_wght.ttf
   #         style: italic
     - family: Anton
       fonts:
-        - asset: assets/fonts/Anton-Regular.ttf
+      - asset: assets/fonts/Anton-Regular.ttf
   #       - asset: fonts/TrajanPro_Bold.ttf
   #         weight: 700
   #
