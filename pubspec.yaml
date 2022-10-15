@@ -51,6 +51,7 @@ dev_dependencies:
   card_swiper : ^2.0.1
   flip_card: ^0.6.0
   dropdown_button2: ^1.8.2
+  custom_radio_grouped_button: ^2.1.2+2
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

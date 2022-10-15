@@ -1,3 +1,5 @@
+import 'package:epsilon/components/delegateBox.dart';
+import 'package:epsilon/components/moduleSelection.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import '../models/models.dart';
@@ -22,14 +24,22 @@ class _RegisterPageState extends State<RegisterPage> {
   TextEditingController headName = TextEditingController();
   TextEditingController teamName = TextEditingController();
   TextEditingController email = TextEditingController();
-  TextEditingController phoneNum = TextEditingController();
-  TextEditingController institution = TextEditingController();
-  TextEditingController feeStructure = TextEditingController();
+  TextEditingController hdphoneNum = TextEditingController();
+  TextEditingController hdinstitution = TextEditingController();
+  TextEditingController phoneNum2 = TextEditingController();
+  TextEditingController institution2 = TextEditingController();
+  TextEditingController member2name = TextEditingController();
+  TextEditingController phoneNum3 = TextEditingController();
+  TextEditingController institution3 = TextEditingController();
+  TextEditingController member3name = TextEditingController();
+  TextEditingController phoneNum4 = TextEditingController();
+  TextEditingController institution4 = TextEditingController();
+  TextEditingController member4name = TextEditingController();
   final List<String> items = [
     'With Social',
     'Without Social',
   ];
-  String? selectedValue;
+  String? hdFeeStructure;
 
   @override
   void didChangeDependencies() {
@@ -273,7 +283,7 @@ class _RegisterPageState extends State<RegisterPage> {
                                               color: Colors.white),
                                           autofocus: false,
                                           textInputAction: TextInputAction.next,
-                                          controller: phoneNum,
+                                          controller: hdphoneNum,
                                           // The validator receives the text that the user has entered.
                                           validator: (value) {
                                             if (value == null ||
@@ -317,7 +327,7 @@ class _RegisterPageState extends State<RegisterPage> {
                                               color: Colors.white),
                                           autofocus: false,
                                           textInputAction: TextInputAction.next,
-                                          controller: institution,
+                                          controller: hdinstitution,
                                           // The validator receives the text that the user has entered.
                                           validator: (value) {
                                             if (value == null ||
@@ -377,10 +387,11 @@ class _RegisterPageState extends State<RegisterPage> {
                                                       ),
                                                     ))
                                                 .toList(),
-                                            value: selectedValue,
+                                            value: hdFeeStructure,
                                             onChanged: (value) {
                                               setState(() {
-                                                selectedValue = value as String;
+                                                hdFeeStructure =
+                                                    value as String;
                                               });
                                             },
                                             icon: const Icon(
@@ -441,35 +452,48 @@ class _RegisterPageState extends State<RegisterPage> {
               ],
             ),
           ),
-          Container(
-            height: 700,
-            child: Stack(
-              children: [
-                Column(
-                  children: [
-                    const SizedBox(
-                      height: 150,
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Container(
-                          height: 400,
-                          decoration: const BoxDecoration(
-                              color: Color(0xff5e17ff),
-                              borderRadius: BorderRadius.all(
-                                  Radius.elliptical(140, 90)))),
-                    ),
-                  ],
-                ),
-                Container(
-                  height: 300,
-                  child: Center(
-                    child: Lottie.asset('assets/rocket.json', height: 250),
-                  ),
-                )
-              ],
+          DelegateBox(
+            memberNum: 2,
+            phone: phoneNum2,
+            institution: institution2,
+            name: member2name,
+          ),
+          DelegateBox(
+            memberNum: 3,
+            phone: phoneNum3,
+            institution: institution3,
+            name: member3name,
+          ),
+          DelegateBox(
+            memberNum: 4,
+            phone: phoneNum4,
+            institution: institution4,
+            name: member4name,
+          ),
+          const SizedBox(
+            height: 20,
+          ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: MaterialButton(
+              onPressed: () async {
+                //Provider.of<AppStateManager>(context, listen: false)
+                //  .goTologin();
+              },
+              height: 70,
+              elevation: 50,
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(22)),
+              minWidth: MediaQuery.of(context).size.width / 2,
+              color: const Color(0xff5317ff),
+              child: const Text(
+                'Add Member',
+                style: TextStyle(
+                    fontSize: 20, fontFamily: 'Anton', color: Colors.white),
+              ),
             ),
-          )
+          ),
+          ModuleSelector()
         ],
       ),
     ));

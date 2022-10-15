@@ -1,5 +1,5 @@
+import 'package:epsilon/components/Cards.dart';
 import '../models/models.dart';
-import '../data/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:lottie/lottie.dart';
@@ -90,42 +90,19 @@ class _LandingPageState extends State<LandingPage> {
                 child: SizedBox(
                   height: 400,
                   child: Swiper(
+                      autoplay: true,
+                      autoplayDelay: 8000,
                       itemCount: 10,
                       itemWidth: MediaQuery.of(context).size.width,
                       viewportFraction: 0.8,
                       scale: 0.9,
                       itemBuilder: (BuildContext context, int index) {
                         return FlipCard(
-                            front: Container(
-                              decoration: const BoxDecoration(
-                                  color: Color(0xfff5ee9e),
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(40))),
-                              child: Center(
-                                child: Text(
-                                  Modules[index],
-                                  style: const TextStyle(
-                                      fontSize: 50,
-                                      fontFamily: 'Anton',
-                                      color: Colors.black),
-                                ),
-                              ),
+                            speed: 400,
+                            front: FrontCard(
+                              index: index,
                             ),
-                            back: Container(
-                              decoration: const BoxDecoration(
-                                  color: Color(0xff73eedc),
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(40))),
-                              child: Center(
-                                child: Text(
-                                  "${Modules[index]}'s details",
-                                  style: const TextStyle(
-                                      fontSize: 50,
-                                      fontFamily: 'Anton',
-                                      color: Colors.black),
-                                ),
-                              ),
-                            ));
+                            back: BackCard(index: index));
                       }),
                 ),
               )),
