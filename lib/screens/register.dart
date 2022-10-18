@@ -1,5 +1,8 @@
+import 'package:epsilon/components/brandAmbasBox.dart';
 import 'package:epsilon/components/delegateBox.dart';
+import 'package:epsilon/components/loginCredBox.dart';
 import 'package:epsilon/components/moduleSelection.dart';
+import 'package:epsilon/components/registerButtonBox.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import '../models/models.dart';
@@ -35,6 +38,9 @@ class _RegisterPageState extends State<RegisterPage> {
   TextEditingController phoneNum4 = TextEditingController();
   TextEditingController institution4 = TextEditingController();
   TextEditingController member4name = TextEditingController();
+  TextEditingController emailAgain = TextEditingController();
+  TextEditingController password = TextEditingController();
+  TextEditingController passwordAgain = TextEditingController();
   final List<String> items = [
     'With Social',
     'Without Social',
@@ -86,7 +92,7 @@ class _RegisterPageState extends State<RegisterPage> {
             ),
           ),
           SizedBox(
-            height: 1000,
+            height: 920,
             child: Stack(
               children: [
                 Column(
@@ -97,7 +103,7 @@ class _RegisterPageState extends State<RegisterPage> {
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Container(
-                        height: 830,
+                        height: 750,
                         decoration: const BoxDecoration(
                             color: Color(0xff5e17ff),
                             borderRadius:
@@ -202,50 +208,6 @@ class _RegisterPageState extends State<RegisterPage> {
                                             if (value == null ||
                                                 value.isEmpty) {
                                               return 'Please enter team name';
-                                            }
-                                            return null;
-                                          },
-                                        ),
-                                      ),
-                                      Padding(
-                                        padding: const EdgeInsets.fromLTRB(
-                                            0, 8, 0, 0),
-                                        child: TextFormField(
-                                          decoration: const InputDecoration(
-                                            prefixIcon: Icon(
-                                              Icons.email,
-                                              color: Colors.yellow,
-                                            ),
-                                            prefixIconColor: Colors.white,
-                                            hintStyle: TextStyle(
-                                                fontSize: 20,
-                                                fontFamily: 'Anton',
-                                                color: Colors.white70),
-                                            focusedBorder: OutlineInputBorder(
-                                              borderSide: BorderSide(
-                                                  color: Colors.white),
-                                            ),
-                                            hintText: 'Email',
-                                            border: OutlineInputBorder(
-                                                borderRadius: BorderRadius.all(
-                                                    Radius.circular(15)),
-                                                borderSide: BorderSide(
-                                                    color: Colors.white)),
-                                          ),
-                                          keyboardType:
-                                              TextInputType.emailAddress,
-                                          style: const TextStyle(
-                                              fontSize: 20,
-                                              fontFamily: 'Anton',
-                                              color: Colors.white),
-                                          autofocus: false,
-                                          textInputAction: TextInputAction.next,
-                                          controller: email,
-                                          // The validator receives the text that the user has entered.
-                                          validator: (value) {
-                                            if (value == null ||
-                                                value.isEmpty) {
-                                              return 'Please enter email address';
                                             }
                                             return null;
                                           },
@@ -493,7 +455,23 @@ class _RegisterPageState extends State<RegisterPage> {
               ),
             ),
           ),
-          ModuleSelector()
+          const ModuleSelector(),
+          const Text('Select a brand ambassador',
+              style: TextStyle(
+                  color: Color(0xff000000), fontFamily: "Anton", fontSize: 20),
+              textAlign: TextAlign.start),
+          const BrandAmbasSelector(),
+          const SizedBox(
+            height: 5,
+          ),
+          LoginCredBox(
+            email: email,
+            emailAgain: emailAgain,
+            password: password,
+            passwordAgain: passwordAgain,
+          ),
+          const SizedBox(height: 50,),
+          const RegisterButtonBox()
         ],
       ),
     ));
